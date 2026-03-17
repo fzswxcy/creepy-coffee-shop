@@ -1,0 +1,95 @@
+{
+  "description": "微恐咖啡厅极简版微信项目配置",
+  "packagename": "com.wechatgame.coffeehorror.quick",
+  "setting": {
+    "urlCheck": false,
+    "es6": false,
+    "enhance": true,
+    "postcss": true,
+    "preloadBackgroundData": false,
+    "minified": true,
+    "newFeature": false,
+    "coverView": true,
+    "nodeModules": false,
+    "autoAudits": false,
+    "showShadowRootInWxmlPanel": false,
+    "scopeDataCheck": false,
+    "uglifyFileName": false,
+    "checkInvalidKey": true,
+    "checkSiteMap": true,
+    "uploadWithSourceMap": false,
+    "compileHotReLoad": false,
+    "useMultiFrameRuntime": true,
+    "useApiHook": true,
+    "useApiHostProcess": false,
+    "babelSetting": {
+      "ignore": [],
+      "disablePlugins": [],
+      "outputPath": ""
+    },
+    "enableEngineNative": false,
+    "bundle": false,
+    "useIsolateContext": true,
+    "useCompilerModule": true,
+    "userConfirmedUseCompilerModuleSwitch": false,
+    "userConfirmedBundleSwitch": false,
+    "packNpmManually": false,
+    "packNpmRelationList": [],
+    "minifyWXSS": true,
+    "ignoreUploadUnusedFiles": true
+  },
+  "compileType": "game",
+  "libVersion": "2.16.0",
+  "appid": "wx1234567890abcdef", // 请替换为实际AppID
+  "projectname": "微恐咖啡厅-极简版",
+  "condition": {
+    "search": {
+      "list": []
+    },
+    "conversation": {
+      "list": []
+    },
+    "game": {
+      "list": []
+    },
+    "plugin": {
+      "list": []
+    },
+    "gamePlugin": {
+      "list": []
+    },
+    "miniprogram": {
+      "list": []
+    }
+  },
+  "game": {
+    "currentL": -1,
+    "list": []
+  },
+  "miniprogramRoot": "./",
+  "gameSetting": {
+    "contextType": 2,
+    "orientation": "portrait",
+    "supportFullscreen": false,
+    "enableWebGL2": true,
+    "enableGPU": false,
+    "showFPS": false,
+    "enableMultiTouch": false,
+    "maxTouchPoints": 2,
+    "subpackages": [
+      {
+        "name": "quick",
+        "root": "./"
+      }
+    ],
+    "remoteResources": []
+  },
+  "plugins": {
+    "wechatgame": {
+      "version": "latest",
+      "provider": "wx1234567890abcdef"
+    }
+  },
+  "cloudfunctionRoot": "",
+  "cloudfunctionTemplateRoot": ""
+}

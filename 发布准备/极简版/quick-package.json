@@ -1,0 +1,39 @@
+{
+  "name": "wechat-coffee-quick",
+  "version": "1.0.0-quick",
+  "description": "微恐咖啡厅极简版 - 今天上线版本",
+  "main": "game.js",
+  "scripts": {
+    "start": "npm run dev",
+    "dev": "echo '请在Cocos Creator中打开项目并运行'",
+    "build": "cocos build --platform wechatgame --config quick-build.json",
+    "build:debug": "cocos build --platform wechatgame --config quick-build.json --debug",
+    "build:release": "cocos build --platform wechatgame --config quick-build.json --release",
+    "test:quick": "echo '快速版本构建测试'",
+    "deploy:test": "npm run build:debug && echo '构建完成，请上传到微信开发者工具'",
+    "deploy:prod": "npm run build:release && echo '发布版本构建完成'"
+  },
+  "keywords": [
+    "coffee",
+    "quick",
+    "wechat",
+    "minigame"
+  ],
+  "author": "微恐咖啡厅团队",
+  "license": "MIT",
+  "devDependencies": {
+    "cocos-creator": "3.8.0"
+  },
+  "dependencies": {},
+  "quickFeatures": {
+    "gameLoop": "simplified",
+    "ui": "minimal",
+    "wechatApi": "basic",
+    "ads": "none",
+    "iap": "none",
+    "cloud": "none",
+    "multiplayer": "none",
+    "targetSize": "2MB",
+    "loadTime": "<3s"
+  }
+}
