@@ -1,0 +1,66 @@
+{
+  "visual_resources": {
+    "backgrounds": [
+      {
+        "name": "creepy_coffee_shop_interior",
+        "prompt": "A dimly lit coffee shop interior with Victorian-style decor, flickering candlelight casting long shadows, vintage coffee equipment with an eerie glow, misty atmosphere, slightly tilted perspective creating unease, muted colors with hints of sepia and deep purples, 2D game art style",
+        "style": "cinematic",
+        "size": "1920x1080"
+      },
+      {
+        "name": "spooky_counter",
+        "prompt": "An old wooden coffee counter with antique espresso machine, steam rising mysteriously, vintage jars with strange contents, flickering neon sign reflection, dark corners with unclear shapes, hand-painted game art style",
+        "style": "cinematic",
+        "size": "1024x1024"
+      },
+      {
+        "name": "haunted_seating_area",
+        "prompt": "Empty cafe seating area with Victorian chairs and tables, moonlight streaming through dusty windows, shadows in the corners, old portraits on walls with eyes that seem to follow, cozy yet unsettling atmosphere, game background art",
+        "style": "cinematic",
+        "size": "1920x1080"
+      }
+    ],
+    "characters": [
+      {
+        "name": "mysterious_barista",
+        "prompt": "A mysterious barista character with half-shadowed face, Victorian apron with coffee stains, knowing smile, slightly translucent appearance, subtle ghostly aura, character design for game, 2D sprite style",
+        "style": "cinematic",
+        "size": "512x512"
+      },
+      {
+        "name": "ghostly_customer",
+        "prompt": "A ghostly customer character sitting at cafe table, semi-transparent, vintage clothing from different eras, holding a steaming cup, friendly yet eerie smile, game character design",
+        "style": "cinematic",
+        "size": "512x512"
+      }
+    ],
+    "ui_elements": [
+      {
+        "name": "creepy_button",
+        "prompt": "Game UI button with Victorian frame, aged paper texture, dark wood border, subtle glow effect when hovered, slightly worn appearance, 2D game UI asset",
+        "style": "cinematic",
+        "size": "256x64"
+      },
+      {
+        "name": "mystical_menu_panel",
+        "prompt": "Game menu panel with ornate Victorian frame, dark purple and gold color scheme, aged parchment center, decorative coffee bean motifs, subtle magical glow, game UI asset",
+        "style": "cinematic",
+        "size": "800x600"
+      }
+    ],
+    "effects": [
+      {
+        "name": "steam_particles",
+        "description": "Coffee steam particle effects, ethereal and slightly magical"
+      },
+      {
+        "name": "shadow_movement",
+        "description": "Subtle shadow movement effects for background ambience"
+      },
+      {
+        "name": "candle_flicker",
+        "description": "Candle light flickering animation effect"
+      }
+    ]
+  }
+}
