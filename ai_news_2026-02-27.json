@@ -1,0 +1,88 @@
+{
+  "date": "2026-02-27",
+  "tech_news": [
+    {
+      "title": "特斯拉推出硬件产品",
+      "source": "Engadget",
+      "time": "今天 13:30",
+      "category": "人工智能",
+      "detail": "采用新材料",
+      "impact": "预计影响: 中"
+    },
+    {
+      "title": "英特尔宣布重大突破",
+      "source": "ZDNet",
+      "time": "今天 11:15",
+      "category": "生物科技",
+      "detail": "获得行业专家高度评价",
+      "impact": "预计影响: 高"
+    },
+    {
+      "title": "英伟达展示概念验证",
+      "source": "CNET",
+      "time": "今天 13:30",
+      "category": "量子计算",
+      "detail": "获得行业专家高度评价",
+      "impact": "预计影响: 高"
+    },
+    {
+      "title": "谷歌推出硬件产品",
+      "source": "The Verge",
+      "time": "今天 10:00",
+      "category": "机器人技术",
+      "detail": "性能提升30%，效率显著提高",
+      "impact": "预计影响: 高"
+    },
+    {
+      "title": "三星展示概念验证",
+      "source": "Wired",
+      "time": "今天 16:15",
+      "category": "生物科技",
+      "detail": "性能提升23%，效率显著提高",
+      "impact": "预计影响: 高"
+    }
+  ],
+  "finance_news": [
+    {
+      "title": "国际货币基金组织调整货币政策",
+      "source": "Bloomberg",
+      "time": "今天 15:15",
+      "category": "就业数据",
+      "detail": "主要影响: 商品市场",
+      "effect": "分析师看法分歧"
+    },
+    {
+      "title": "美国财政部维持利率不变",
+      "source": "Bloomberg",
+      "time": "今天 17:45",
+      "category": "通货膨胀",
+      "detail": "主要影响: 商品市场",
+      "effect": "市场反应积极"
+    },
+    {
+      "title": "欧洲央行调整增长预期",
+      "source": "Reuters",
+      "time": "今天 11:30",
+      "category": "通货膨胀",
+      "detail": "主要影响: 汇市",
+      "effect": "分析师看法分歧"
+    },
+    {
+      "title": "G20集团维持利率不变",
+      "source": "Business Insider",
+      "time": "今天 13:00",
+      "category": "投资趋势",
+      "detail": "主要影响: 就业市场",
+      "effect": "长期影响待观察"
+    },
+    {
+      "title": "欧盟委员会调整货币政策",
+      "source": "Reuters",
+      "time": "今天 08:30",
+      "category": "投资趋势",
+      "detail": "主要影响: 消费市场",
+      "effect": "分析师看法分歧"
+    }
+  ],
+  "generated_at": "2026-02-27T01:20:37.025624"
+}

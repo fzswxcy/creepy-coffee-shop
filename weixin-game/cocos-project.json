@@ -1,0 +1,64 @@
+{
+  "engine": "cocos-creator-3d",
+  "collab": {
+    "engineVersion": "3.8.1",
+    "prevEngineVersion": "3.8.1"
+  },
+  "designResolutionWidth": 720,
+  "designResolutionHeight": 1280,
+  "fitHeight": true,
+  "fitWidth": false,
+  "orientation": "portrait",
+  "startScene": "db://assets/scenes/main.fire",
+  "scenes": [
+    "db://assets/scenes/main.fire",
+    "db://assets/scenes/loading.fire"
+  ],
+  "uuids": [],
+  "previewWidth": 720,
+  "previewHeight": 1280,
+  "customLayers": [
+    {
+      "name": "UI",
+      "value": 10
+    },
+    {
+      "name": "Game",
+      "value": 11
+    },
+    {
+      "name": "Effect",
+      "value": 12
+    },
+    {
+      "name": "Debug",
+      "value": 13
+    }
+  ],
+  "groupList": [
+    "default"
+  ],
+  "platform": "wechatgame",
+  "startSceneUuid": "",
+  "renderPipeline": "builtin-forward",
+  "physics": {
+    "type": "builtin",
+    "gravity": 10,
+    "allowSleep": true
+  },
+  "adaptScreen": false,
+  "debug": true,
+  "packages": {
+    "d9c3f2e8-9c01-4b74-a33d-b5e9c7c1e8b5": {
+      "path": "packages/wechat-mini-game"
+    }
+  },
+  "targetPlatform": "wechatgame",
+  "autoGeneratePrefab": false,
+  "cullingBox": {
+    "x": 100,
+    "y": 100,
+    "z": 100
+  },
+  "loadImport": false
+}

@@ -1,0 +1,79 @@
+{
+  "api_keys_required": {
+    "tavily_api_key": {
+      "platform": "Tavily",
+      "url": "https://app.tavily.com/",
+      "pricing": "Free tier available, paid plans start at $25/month",
+      "notes": "专为AI优化的搜索引擎API，适合科技新闻和AI内容"
+    },
+    "bing_api_key": {
+      "platform": "Microsoft Azure Cognitive Services - Bing Search",
+      "url": "https://portal.azure.com/#create/Microsoft.CognitiveServicesBingSearch-v7",
+      "pricing": "Free tier: 1000 transactions/month, then $7 per 1000 transactions",
+      "notes": "支持site:语法，可限制搜索结果到特定域名"
+    },
+    "serpapi_api_key": {
+      "platform": "SerpApi",
+      "url": "https://serpapi.com/",
+      "pricing": "Free tier: 100 searches/month, paid plans start at $50/month",
+      "notes": "备用方案，支持多种搜索引擎包括Bing"
+    },
+    "firecrawl_api_key": {
+      "platform": "Firecrawl",
+      "url": "https://firecrawl.dev/",
+      "pricing": "Free tier: 100 credits/month, then pay-as-you-go",
+      "notes": "用于抓取JavaScript渲染的动态页面"
+    }
+  },
+  "no_api_key_required": {
+    "jina_reader": {
+      "url": "https://r.jina.ai/",
+      "usage": "免费公共端点，直接将URL拼接到 https://r.jina.ai/ 后",
+      "rate_limit": "可能有请求限制，适合小规模使用"
+    },
+    "rsshub": {
+      "url": "https://rsshub.app/",
+      "usage": "开源RSS聚合器，无需API Key",
+      "notes": "支持微信公众号、知乎、微博等平台的RSS转换"
+    }
+  },
+  "vendor_domain_mapping": {
+    "volcengine": "volcengine.com",
+    "tencent": "cloud.tencent.com",
+    "baidu": "cloud.baidu.com",
+    "aliyun": "aliyun.com",
+    "huawei": "huaweicloud.com",
+    "bytedance": "bytedance.com",
+    "meituan": "meituan.com",
+    "jd": "jd.com",
+    "didi": "didiglobal.com"
+  },
+  "common_rss_sources": {
+    "wechat_public_accounts": {
+      "pattern": "/wechat/category/科技",
+      "example": "https://rsshub.app/wechat/category/科技"
+    },
+    "zhihu_columns": {
+      "pattern": "/zhihu/column/:id",
+      "notes": "需要知乎专栏ID"
+    },
+    "github_trending": {
+      "pattern": "/github/trending/:since",
+      "example": "https://rsshub.app/github/trending/daily"
+    },
+    "techcrunch": {
+      "pattern": "/techcrunch",
+      "example": "https://rsshub.app/techcrunch"
+    }
+  },
+  "quick_start_example": {
+    "python_code": "from Omni_Intelligence_Radar import OmniIntelligenceRadar\n\nconfig = {\n    \"tavily_api_key\": \"your_key_here\",\n    \"bing_api_key\": \"your_key_here\",\n    \"firecrawl_api_key\": \"your_key_here\"\n}\n\nradar = OmniIntelligenceRadar(config)\n\n# 搜索火山引擎相关信息\nresult = radar.gather_vendor_intelligence(\"OpenClaw\", \"volcengine\")\nprint(f\"找到 {result['summary']['total_urls_found']} 个URL\")\nprint(f\"成功提取 {result['summary']['successfully_extracted']} 个文档\")"
+  },
+  "installation_requirements": {
+    "python": ">=3.8",
+    "dependencies": [
+      "requests>=2.28.0"
+    ],
+    "installation": "pip install requests"
+  }
+}

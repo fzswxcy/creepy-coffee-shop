@@ -1,0 +1,195 @@
+/* game.wxss - 游戏样式 */
+.game-container {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #8b4513 0%, #3e2723 100%);
+  color: #fff;
+  padding: 20rpx;
+}
+
+/* 状态栏 */
+.status-bar {
+  display: flex;
+  justify-content: space-between;
+  background: rgba(0, 0, 0, 0.3);
+  padding: 20rpx;
+  border-radius: 20rpx;
+  margin-bottom: 40rpx;
+  border: 2rpx solid #ffd700;
+}
+
+.status-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.status-label {
+  font-size: 24rpx;
+  color: #ccc;
+}
+
+.status-value {
+  font-size: 32rpx;
+  font-weight: bold;
+  margin-top: 10rpx;
+}
+
+.money {
+  color: #4CAF50;
+}
+
+.reputation {
+  color: #FF9800;
+}
+
+/* 分区样式 */
+.section-title {
+  font-size: 36rpx;
+  font-weight: bold;
+  color: #ffd700;
+  margin-bottom: 30rpx;
+  padding-bottom: 10rpx;
+  border-bottom: 2rpx solid #ffd700;
+}
+
+.coffee-section, .customer-section, .info-section {
+  background: rgba(0, 0, 0, 0.2);
+  padding: 30rpx;
+  border-radius: 20rpx;
+  margin-bottom: 40rpx;
+  border: 1rpx solid rgba(255, 255, 255, 0.1);
+}
+
+/* 咖啡订单 */
+.coffee-orders {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20rpx;
+  margin-bottom: 30rpx;
+}
+
+.coffee-item {
+  flex: 1;
+  min-width: 200rpx;
+  background: rgba(255, 215, 0, 0.1);
+  border: 2rpx solid #ffd700;
+  border-radius: 15rpx;
+  padding: 20rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: transform 0.3s;
+}
+
+.coffee-item:active {
+  transform: scale(0.95);
+}
+
+.coffee-name {
+  font-size: 32rpx;
+  font-weight: bold;
+  margin-bottom: 10rpx;
+}
+
+.coffee-price {
+  font-size: 28rpx;
+  color: #4CAF50;
+}
+
+.coffee-time {
+  font-size: 24rpx;
+  color: #FF9800;
+  margin-top: 10rpx;
+}
+
+/* 制作进度 */
+.making-coffee {
+  background: rgba(76, 175, 80, 0.2);
+  padding: 20rpx;
+  border-radius: 15rpx;
+  text-align: center;
+}
+
+.progress-bar {
+  width: 100%;
+  height: 30rpx;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 15rpx;
+  margin: 20rpx 0;
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #4CAF50, #8BC34A);
+  border-radius: 15rpx;
+  transition: width 0.1s;
+}
+
+/* 顾客服务 */
+.customer-waiting {
+  background: rgba(255, 152, 0, 0.2);
+  padding: 30rpx;
+  border-radius: 15rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% { box-shadow: 0 0 0 0 rgba(255, 152, 0, 0.4); }
+  70% { box-shadow: 0 0 0 20rpx rgba(255, 152, 0, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(255, 152, 0, 0); }
+}
+
+.customer-waiting text {
+  font-size: 32rpx;
+  margin-bottom: 15rpx;
+}
+
+.serve-btn {
+  background: #FF9800;
+  color: white;
+  font-weight: bold;
+  font-size: 32rpx;
+  margin-top: 30rpx;
+  width: 80%;
+  border-radius: 50rpx;
+  box-shadow: 0 10rpx 20rpx rgba(255, 152, 0, 0.3);
+}
+
+.serve-btn:active {
+  background: #F57C00;
+}
+
+.customer-stats {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15rpx;
+}
+
+.customer-stats text {
+  font-size: 28rpx;
+  padding: 10rpx 20rpx;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 10rpx;
+  width: 100%;
+  text-align: center;
+}
+
+/* 信息区 */
+.info-section {
+  text-align: center;
+}
+
+.game-tip {
+  display: block;
+  font-size: 26rpx;
+  color: #ccc;
+  margin-bottom: 15rpx;
+  padding: 15rpx;
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 10rpx;
+}

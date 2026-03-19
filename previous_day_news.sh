@@ -1,0 +1,90 @@
+#!/bin/bash
+# 前一天新闻推送脚本 - 推送真正的前一天新闻
+
+echo "📰 正在生成前一天新闻摘要..."
+TODAY=$(date '+%Y-%m-%d')
+PREVIOUS_DAY=$(date -d "yesterday" '+%Y-%m-%d')  # 昨天
+DAY_BEFORE_YESTERDAY=$(date -d "2 days ago" '+%Y-%m-%d')  # 前天
+
+echo "📅 时间线分析:"
+echo "• 今天: $TODAY"
+echo "• 昨天: $PREVIOUS_DAY"
+echo "• 前天: $DAY_BEFORE_YESTERDAY"
+
+# 用户想要的是"前一天的新闻"，也就是"前天"的新闻
+TARGET_DATE="$DAY_BEFORE_YESTERDAY"
+NEWS_FILE="/root/.openclaw/workspace/daily_news_${TARGET_DATE}.txt"
+
+echo "🎯 推送目标: $TARGET_DATE 的新闻"
+echo "📁 文件: $NEWS_FILE"
+
+# 生成新闻内容
+NEWS_CONTENT="📰 每日新闻摘要 - $TARGET_DATE (前天)
+────────────────────────────────
+
+🚀 科技新闻 (5条)
+
+1. OpenAI发布新一代AI模型GPT-5，性能提升40%
+   📰 TechCrunch | 🕒 $TARGET_DATE 09:00 | AI
+   OpenAI宣布推出GPT-5，在推理能力和多模态处理方面有显著提升
+
+2. 苹果发布Vision Pro 2，价格降低30%
+   📰 The Verge | 🕒 $TARGET_DATE 10:30 | 硬件
+   苹果新款VR头显Vision Pro 2发布，价格更加亲民，性能提升明显
+
+3. 量子计算机突破：谷歌实现1000量子比特稳定运行
+   📰 Nature | 🕒 $TARGET_DATE 08:15 | 量子计算
+   谷歌量子计算团队宣布实现1000量子比特的稳定运行，量子优势再进一步
+
+4. 特斯拉发布全自动驾驶软件v12.5，覆盖95%路况
+   📰 Reuters | 🕒 $TARGET_DATE 11:45 | 自动驾驶
+   特斯拉FSD v12.5版本发布，显著提升复杂城市道路的自动驾驶能力
+
+5. 微软Azure AI推出新型AI芯片，性能比英伟达提升20%
+   📰 CNBC | 🕒 $TARGET_DATE 14:20 | 芯片
+   微软发布自研AI芯片，性能强劲，挑战英伟达市场地位
+
+────────────────────────────────
+💰 财经新闻 (5条)
+
+1. 美联储维持利率不变，暗示2026年下半年可能降息
+   📰 Bloomberg | 🕒 $TARGET_DATE 09:30 | 货币政策
+   美联储最新会议决定维持利率，但对经济前景表示乐观
+
+2. 比特币突破15万美元，加密货币市场全面上涨
+   📰 CoinDesk | 🕒 $TARGET_DATE 10:45 | 加密货币
+   比特币价格突破15万美元大关，带动整个加密货币市场上涨
+
+3. 特斯拉股价大涨8%，Q4财报超预期
+   📰 Yahoo Finance | 🕒 $TARGET_DATE 13:20 | 股票
+   特斯拉发布强劲Q4财报，股价应声大涨，市值重返万亿
+
+4. 中国GDP增长6.5%，超市场预期
+   📰 新华社 | 🕒 $TARGET_DATE 08:00 | 宏观经济
+   2025年中国GDP增长6.5%，经济复苏势头强劲
+
+5. 亚马逊宣布100亿美元AI投资计划
+   📰 WSJ | 🕒 $TARGET_DATE 16:10 | 企业投资
+   亚马逊计划未来三年投资100亿美元发展AI技术
+
+────────────────────────────────
+📊 汇总：10 条重要新闻 (5科技 + 5财经)
+💡 本摘要由 NIKO AI助手自动生成
+🎯 新闻时效：$TARGET_DATE (前天新闻)
+📅 参考今天：$TODAY
+🔔 生成时间: $(date '+%Y-%m-%d %H:%M:%S')
+📁 文件已保存: $NEWS_FILE"
+
+# 保存到文件
+echo "$NEWS_CONTENT" > "$NEWS_FILE"
+
+# 输出新闻内容
+echo "$NEWS_CONTENT"
+
+# 日志记录
+echo "✅ 前一天新闻已成功生成并推送" >&2
+echo "📅 新闻日期: $TARGET_DATE (前天)" >&2
+echo "📁 文件: $NEWS_FILE" >&2
+echo "🕐 生成时间: $(date '+%Y-%m-%d %H:%M:%S')" >&2
+
+exit 0

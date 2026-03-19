@@ -1,0 +1,19 @@
+{
+  "pages": [
+    "pages/game/game"
+  ],
+  "window": {
+    "backgroundTextStyle": "dark",
+    "navigationBarBackgroundColor": "#3e2723",
+    "navigationBarTitleText": "微恐咖啡厅",
+    "navigationBarTextStyle": "white",
+    "backgroundColor": "#3e2723"
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json",
+  "networkTimeout": {
+    "request": 10000,
+    "downloadFile": 10000
+  },
+  "debug": true
+}

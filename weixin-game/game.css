@@ -1,0 +1,538 @@
+/* 微恐咖啡厅微信小游戏样式补充 */
+
+/* 咖啡制作动画 */
+@keyframes brewing {
+    0% { transform: scale(1); opacity: 0.5; }
+    50% { transform: scale(1.1); opacity: 1; }
+    100% { transform: scale(1); opacity: 0.5; }
+}
+
+.brewing-animation {
+    animation: brewing 1s ease-in-out infinite;
+}
+
+/* 清洁动画 */
+@keyframes cleaning {
+    0% { transform: translateX(-10px) rotate(-5deg); }
+    50% { transform: translateX(10px) rotate(5deg); }
+    100% { transform: translateX(-10px) rotate(-5deg); }
+}
+
+.cleaning-animation {
+    animation: cleaning 0.5s ease-in-out infinite;
+}
+
+/* 恐怖事件特效 */
+@keyframes horrorShake {
+    0%, 100% { transform: translateX(0); }
+    10%, 30%, 50%, 70%, 90% { transform: translateX(-5px); }
+    20%, 40%, 60%, 80% { transform: translateX(5px); }
+}
+
+.horror-shake {
+    animation: horrorShake 0.5s ease-in-out;
+}
+
+@keyframes bloodDrip {
+    0% { transform: translateY(-100%); opacity: 0; }
+    50% { opacity: 0.7; }
+    100% { transform: translateY(100%); opacity: 0; }
+}
+
+.blood-drip {
+    position: absolute;
+    width: 2px;
+    height: 100px;
+    background: linear-gradient(to bottom, #ff0000, #660000);
+    animation: bloodDrip 3s linear infinite;
+    z-index: 400;
+}
+
+/* 幽灵呼吸效果 */
+@keyframes ghostBreath {
+    0%, 100% { opacity: 0.2; transform: scale(1); }
+    50% { opacity: 0.5; transform: scale(1.1); }
+}
+
+.ghost-breath {
+    animation: ghostBreath 3s ease-in-out infinite;
+}
+
+/* 时间循环特效 */
+@keyframes timeWarp {
+    0% { filter: hue-rotate(0deg) blur(0px); }
+    50% { filter: hue-rotate(180deg) blur(2px); }
+    100% { filter: hue-rotate(360deg) blur(0px); }
+}
+
+.time-warp {
+    animation: timeWarp 2s ease-in-out;
+}
+
+/* 成就解锁特效 */
+@keyframes achievementUnlock {
+    0% { transform: scale(0) rotate(0deg); opacity: 0; }
+    50% { transform: scale(1.2) rotate(180deg); opacity: 1; }
+    100% { transform: scale(1) rotate(360deg); opacity: 1; }
+}
+
+.achievement-unlock {
+    animation: achievementUnlock 0.8s ease-out;
+}
+
+/* 理智值警告 */
+@keyframes sanityWarning {
+    0%, 100% { background-color: rgba(255, 71, 87, 0.1); }
+    50% { background-color: rgba(255, 71, 87, 0.3); }
+}
+
+.sanity-warning {
+    animation: sanityWarning 1s ease-in-out infinite;
+}
+
+/* 按钮脉冲效果 */
+@keyframes buttonPulse {
+    0%, 100% { box-shadow: 0 0 0 0 rgba(255, 107, 129, 0.7); }
+    50% { box-shadow: 0 0 0 10px rgba(255, 107, 129, 0); }
+}
+
+.button-pulse {
+    animation: buttonPulse 2s infinite;
+}
+
+/* 广告按钮特效 */
+@keyframes adGlow {
+    0%, 100% { box-shadow: 0 0 5px rgba(255, 165, 2, 0.5); }
+    50% { box-shadow: 0 0 20px rgba(255, 165, 2, 0.8); }
+}
+
+.ad-glow {
+    animation: adGlow 1.5s ease-in-out infinite;
+}
+
+/* 进度条样式 */
+.progress-bar {
+    width: 100%;
+    height: 6px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 3px;
+    overflow: hidden;
+    margin: 8px 0;
+}
+
+.progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #ff4757, #ff6b81);
+    border-radius: 3px;
+    transition: width 0.3s ease;
+}
+
+/* 配方卡片 */
+.recipe-card {
+    background: rgba(30, 30, 40, 0.8);
+    border: 1px solid rgba(255, 107, 129, 0.3);
+    border-radius: 12px;
+    padding: 12px;
+    margin: 8px 0;
+    backdrop-filter: blur(10px);
+    transition: all 0.3s ease;
+}
+
+.recipe-card:hover {
+    transform: translateY(-2px);
+    border-color: rgba(255, 107, 129, 0.6);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+.recipe-card.locked {
+    opacity: 0.5;
+    filter: grayscale(0.8);
+}
+
+.recipe-card.selected {
+    border-color: #ff6b81;
+    background: rgba(255, 107, 129, 0.1);
+    box-shadow: 0 0 15px rgba(255, 107, 129, 0.4);
+}
+
+/* 恐怖事件提示 */
+.horror-alert {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(0, 0, 0, 0.9);
+    color: #ff4757;
+    padding: 20px 30px;
+    border: 2px solid #ff4757;
+    border-radius: 15px;
+    font-size: 18px;
+    font-weight: bold;
+    text-align: center;
+    z-index: 1000;
+    animation: horrorAlert 2s ease-out;
+    backdrop-filter: blur(10px);
+}
+
+@keyframes horrorAlert {
+    0% { opacity: 0; transform: translate(-50%, -50%) scale(0.5); }
+    25% { opacity: 1; transform: translate(-50%, -50%) scale(1.1); }
+    100% { opacity: 0; transform: translate(-50%, -50%) scale(1); }
+}
+
+/* 加载进度条 */
+.loading-bar {
+    width: 80%;
+    max-width: 300px;
+    height: 4px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 2px;
+    overflow: hidden;
+    margin: 20px auto;
+}
+
+.loading-progress {
+    height: 100%;
+    background: linear-gradient(90deg, #ff6b81, #ff4757);
+    border-radius: 2px;
+    transition: width 0.3s ease;
+    width: 0%;
+}
+
+/* 游戏内提示 */
+.game-tooltip {
+    position: absolute;
+    background: rgba(0, 0, 0, 0.8);
+    color: #fff;
+    padding: 8px 12px;
+    border-radius: 8px;
+    font-size: 12px;
+    max-width: 200px;
+    z-index: 500;
+    pointer-events: none;
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 107, 129, 0.3);
+    animation: tooltipFade 0.3s ease;
+}
+
+@keyframes tooltipFade {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* 社交分享样式 */
+.share-container {
+    position: absolute;
+    bottom: 120px;
+    right: 16px;
+    z-index: 250;
+}
+
+.share-button {
+    width: 50px;
+    height: 50px;
+    background: linear-gradient(135deg, #09f, #0af);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 20px;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(0, 153, 255, 0.4);
+    transition: all 0.3s;
+}
+
+.share-button:active {
+    transform: scale(0.9);
+    box-shadow: 0 2px 6px rgba(0, 153, 255, 0.6);
+}
+
+/* 成就徽章 */
+.achievement-badge {
+    width: 40px;
+    height: 40px;
+    background: linear-gradient(135deg, #ffd700, #ff9500);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-size: 16px;
+    font-weight: bold;
+    box-shadow: 0 4px 8px rgba(255, 213, 0, 0.4);
+}
+
+.achievement-badge.locked {
+    background: linear-gradient(135deg, #666, #888);
+    filter: grayscale(1);
+}
+
+/* 响应式调整 */
+@media (orientation: landscape) {
+    .status-bar {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 4px;
+    }
+    
+    .control-panel {
+        grid-template-columns: repeat(10, 1fr);
+        gap: 8px;
+        padding: 12px;
+    }
+    
+    .control-btn {
+        padding: 10px 6px;
+    }
+    
+    .btn-icon {
+        font-size: 16px;
+        margin-bottom: 2px;
+    }
+    
+    .btn-text {
+        font-size: 9px;
+    }
+    
+    #messageLog {
+        top: 16px;
+        right: 16px;
+        left: auto;
+        width: 200px;
+        max-height: calc(100vh - 200px);
+    }
+}
+
+/* 暗黑模式优化 */
+@media (prefers-color-scheme: dark) {
+    body {
+        background: #0a0a0a;
+    }
+    
+    .status-bar {
+        background: rgba(10, 10, 10, 0.9);
+    }
+    
+    .control-panel {
+        background: rgba(20, 20, 20, 0.85);
+    }
+}
+
+/* 高性能设备优化 */
+@media (prefers-reduced-motion: no-preference) {
+    .control-btn:active {
+        transition: transform 0.1s ease;
+    }
+}
+
+/* 低性能设备优化 */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+/* 打印样式 */
+@media print {
+    #game-container,
+    #controlContainer,
+    #messageLog {
+        display: none !important;
+    }
+    
+    body {
+        background: white;
+        color: black;
+    }
+}
+
+/* 辅助功能优化 */
+@media (prefers-contrast: high) {
+    .status-value {
+        color: #fff;
+        text-shadow: 0 0 3px #000;
+    }
+    
+    .control-btn {
+        border: 2px solid #fff;
+    }
+}
+
+/* 触摸设备优化 */
+@media (hover: none) and (pointer: coarse) {
+    .control-btn {
+        min-height: 44px;
+        min-width: 44px;
+    }
+    
+    .status-item {
+        min-height: 44px;
+    }
+}
+
+/* 游戏结束画面 */
+.game-over {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.9);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 2000;
+    backdrop-filter: blur(10px);
+}
+
+.game-over h2 {
+    color: #ff4757;
+    font-size: 36px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.game-over p {
+    color: #aaa;
+    font-size: 18px;
+    margin-bottom: 30px;
+    text-align: center;
+    max-width: 80%;
+}
+
+.restart-button {
+    padding: 16px 32px;
+    background: linear-gradient(135deg, #ff4757, #ff6b81);
+    color: white;
+    border: none;
+    border-radius: 25px;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 6px 20px rgba(255, 71, 87, 0.4);
+}
+
+.restart-button:active {
+    transform: scale(0.95);
+}
+
+/* 音量控制 */
+.volume-control {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    z-index: 250;
+    background: rgba(0, 0, 0, 0.7);
+    border-radius: 20px;
+    padding: 8px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    backdrop-filter: blur(10px);
+}
+
+.volume-slider {
+    width: 60px;
+    height: 4px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 2px;
+    outline: none;
+    -webkit-appearance: none;
+}
+
+.volume-slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 16px;
+    height: 16px;
+    background: #ff6b81;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+/* 设置面板 */
+.settings-panel {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(20, 20, 30, 0.95);
+    border: 1px solid rgba(255, 107, 129, 0.3);
+    border-radius: 20px;
+    padding: 24px;
+    z-index: 3000;
+    backdrop-filter: blur(20px);
+    min-width: 280px;
+    max-width: 90%;
+}
+
+.settings-panel h3 {
+    color: #ff6b81;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.settings-option {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+    padding: 8px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.settings-label {
+    color: #e0e0e0;
+    font-size: 14px;
+}
+
+.settings-toggle {
+    position: relative;
+    width: 44px;
+    height: 24px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    cursor: pointer;
+}
+
+.settings-toggle.active {
+    background: #ff6b81;
+}
+
+.toggle-slider {
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    width: 20px;
+    height: 20px;
+    background: white;
+    border-radius: 50%;
+    transition: transform 0.3s;
+}
+
+.settings-toggle.active .toggle-slider {
+    transform: translateX(20px);
+}
+
+.close-settings {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    width: 24px;
+    height: 24px;
+    background: rgba(255, 107, 129, 0.3);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 12px;
+    cursor: pointer;
+}
+
+.close-settings:active {
+    transform: scale(0.9);
+}

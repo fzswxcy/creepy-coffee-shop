@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>新闻预览 - NIKO测试</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+        }
+        .container {
+            background: white;
+            border-radius: 10px;
+            padding: 25px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        h1 {
+            text-align: center;
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+        .date {
+            text-align: center;
+            color: #7f8c8d;
+            margin-bottom: 20px;
+        }
+        .news-section {
+            margin: 20px 0;
+        }
+        h2 {
+            color: #3498db;
+            padding-bottom: 5px;
+            border-bottom: 2px solid #3498db;
+        }
+        .news-item {
+            background: #f8f9fa;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 8px;
+            border-left: 4px solid #3498db;
+        }
+        .news-title {
+            font-weight: bold;
+            color: #2c3e50;
+            margin-bottom: 5px;
+        }
+        .news-meta {
+            color: #7f8c8d;
+            font-size: 14px;
+            margin-bottom: 8px;
+        }
+        .news-summary {
+            color: #34495e;
+        }
+        .finance .news-item {
+            border-left-color: #2ecc71;
+        }
+        .footer {
+            text-align: center;
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid #e0e0e0;
+            color: #7f8c8d;
+            font-size: 14px;
+        }
+        .ai-badge {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 8px 15px;
+            border-radius: 20px;
+            display: inline-block;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>📰 新闻推送系统预览</h1>
+        <div class="date">超级大大王 - NIKO测试版 - 2026-02-24</div>
+        
+        <div class="news-section">
+            <h2>🚀 科技新闻预览</h2>
+            <div class="news-item">
+                <div class="news-title">OpenAI发布新一代AI模型GPT-5</div>
+                <div class="news-meta">📰 TechCrunch | 🕒 今天 09:00</div>
+                <div class="news-summary">性能提升40%，在推理能力和多模态处理方面有显著提升。</div>
+            </div>
+            <div class="news-item">
+                <div class="news-title">苹果发布Vision Pro 2，价格降低30%</div>
+                <div class="news-meta">📰 The Verge | 🕒 今天 10:30</div>
+                <div class="news-summary">新款VR头显，价格更加亲民，性能提升明显。</div>
+            </div>
+        </div>
+        
+        <div class="news-section finance">
+            <h2>💰 财经新闻预览</h2>
+            <div class="news-item">
+                <div class="news-title">美联储维持利率不变</div>
+                <div class="news-meta">📰 Bloomberg | 🕒 今天 09:30</div>
+                <div class="news-summary">暗示2026年下半年可能降息，对经济前景表示乐观。</div>
+            </div>
+            <div class="news-item">
+                <div class="news-title">比特币突破15万美元</div>
+                <div class="news-meta">📰 CoinDesk | 🕒 今天 10:45</div>
+                <div class="news-summary">带动整个加密货币市场全面上涨。</div>
+            </div>
+        </div>
+        
+        <div class="footer">
+            <div class="ai-badge">🤖 由NIKO AI助手生成</div>
+            <p>⏰ 每天8:30自动推送昨日新闻</p>
+            <p>📱 正在修复QQ推送功能...</p>
+        </div>
+    </div>
+</body>
+</html>

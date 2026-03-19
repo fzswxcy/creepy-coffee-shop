@@ -1,0 +1,21 @@
+{
+  "acp": {
+    "defaultAgent": "claude-code",
+    "allowedAgents": ["claude-code"],
+    "modelConfig": {
+      "provider": "glm5",
+      "apiKey": "TO_BE_PROVIDED",
+      "model": "TO_BE_PROVIDED",
+      "endpoint": "https://api.glm5.com/v1/chat/completions",
+      "temperature": 0.7,
+      "maxTokens": 4096
+    }
+  },
+  "claudeCode": {
+    "enabled": true,
+    "autoConnect": true,
+    "workspacePath": "/root/.openclaw/workspace",
+    "defaultTaskTimeout": 300,
+    "enableDebugLogging": false
+  }
+}

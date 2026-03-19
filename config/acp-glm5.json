@@ -1,0 +1,14 @@
+{
+  "acp": {
+    "defaultAgent": "claude-code",
+    "allowedAgents": ["claude-code"],
+    "modelConfig": {
+      "provider": "glm5",
+      "apiKey": "sk-6f6a9c7f8c0649b89a712bc4651207f3",
+      "model": "glm-5",
+      "endpoint": "https://api.glm5.com/v1/chat/completions",
+      "temperature": 0.7,
+      "maxTokens": 4096
+    }
+  }
+}

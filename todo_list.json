@@ -1,0 +1,205 @@
+{
+  "project": "微恐咖啡厅微信小游戏",
+  "status": "active",
+  "created_at": "2026-03-04T17:13:00Z",
+  "last_updated": "2026-03-04T17:13:00Z",
+  "tasks": [
+    {
+      {
+      "id": "frontend-001",
+      "title": "主界面咖啡厅场景开发",
+      "description": "创建主游戏场景：午夜咖啡厅环境，包括基本UI布局、背景渲染、角色初始位置",
+      "priority": "critical",
+      "status": "completed",
+      "assignee": "NIKO",
+      "estimated_hours": 8,
+      "actual_hours": 0.5,
+      "completed_at": "2026-03-04T17:20:00Z",
+      "dependencies": [],
+      "created_at": "2026-03-04T17:13:00Z",
+      "checklist": [
+        "✅ 设计咖啡厅3D场景布局",
+        "✅ 实现基础Three.js渲染环境", 
+        "✅ 添加环境光照和恐怖氛围",
+        "✅ 创建角色控制器基本框架"
+      ],
+      "deliverables": [
+        "coffee_scene.html - 完整的游戏界面",
+        "coffee_scene.js - Three.js游戏引擎",
+        "恐怖事件系统、理智值管理、咖啡制作机制"
+      ],
+      "quality_score": 85
+    }
+    },
+    {
+      "id": "frontend-002",
+      "title": "咖啡制作系统原型",
+      "description": "实现拖拽式咖啡配方制作界面：原料选择、制作步骤、成品展示",
+      "priority": "high",
+      "status": "todo",
+      "assignee": "NIKO",
+      "estimated_hours": 6,
+      "dependencies": ["frontend-001"],
+      "created_at": "2026-03-04T17:13:00Z",
+      "checklist": [
+        "设计咖啡制作界面UI",
+        "实现拖拽式原料选择",
+        "创建制作步骤动画",
+        "添加成品展示效果"
+      ]
+    },
+    {
+      "id": "frontend-003",
+      "title": "恐怖氛围系统基础",
+      "description": "实现动态恐怖元素：随机事件、音效系统、光线变化",
+      "priority": "high",
+      "status": "todo",
+      "assignee": "NIKO",
+      "estimated_hours": 5,
+      "dependencies": ["frontend-001"],
+      "created_at": "2026-03-04T17:13:00Z",
+      "checklist": [
+        "设计随机恐怖事件系统",
+        "集成背景音效和事件音效",
+        "实现动态光线变化效果",
+        "创建惊吓触发机制"
+      ]
+    },
+    {
+      "id": "backend-001",
+      "title": "用户系统API设计",
+      "description": "设计并实现用户注册、登录、进度同步等基础API接口",
+      "priority": "critical",
+      "status": "todo",
+      "assignee": "NIKO",
+      "estimated_hours": 6,
+      "dependencies": [],
+      "created_at": "2026-03-04T17:13:00Z",
+      "checklist": [
+        "设计用户数据模型",
+        "实现注册/登录API",
+        "创建进度同步接口",
+        "设计会话管理机制"
+      ]
+    },
+    {
+      "id": "backend-002",
+      "title": "咖啡配方管理系统",
+      "description": "实现咖啡配方的保存、分享、购买等API功能",
+      "priority": "high",
+      "status": "todo",
+      "assignee": "NIKO",
+      "estimated_hours": 4,
+      "dependencies": ["backend-001"],
+      "created_at": "2026-03-04T17:13:00Z",
+      "checklist": [
+        "设计配方数据模型",
+        "实现配方保存接口",
+        "创建配方分享机制",
+        "设计购买和交易API"
+      ]
+    },
+    {
+      "id": "database-001",
+      "title": "MongoDB数据库配置",
+      "description": "配置MongoDB数据库，创建用户、配方、进度等数据集合",
+      "priority": "medium",
+      "status": "todo",
+      "assignee": "NIKO",
+      "estimated_hours": 3,
+      "dependencies": [],
+      "created_at": "2026-03-04T17:13:00Z",
+      "checklist": [
+        "安装和配置MongoDB",
+        "创建项目数据库",
+        "设计数据集合结构",
+        "配置索引和查询优化"
+      ]
+    },
+    {
+      "id": "database-002",
+      "title": "Redis缓存系统设置",
+      "description": "配置Redis用于会话缓存和排行榜数据",
+      "priority": "medium",
+      "status": "todo",
+      "assignee": "NIKO",
+      "estimated_hours": 2,
+      "dependencies": ["database-001"],
+      "created_at": "2026-03-04T17:13:00Z",
+      "checklist": [
+        "安装和配置Redis",
+        "设计缓存数据结构",
+        "实现会话缓存机制",
+        "创建排行榜数据存储"
+      ]
+    },
+    {
+      "id": "testing-001",
+      "title": "功能测试环境搭建",
+      "description": "搭建自动化测试环境，配置测试框架和工具",
+      "priority": "medium",
+      "status": "todo",
+      "assignee": "NIKO",
+      "estimated_hours": 4,
+      "dependencies": ["frontend-001", "backend-001"],
+      "created_at": "2026-03-04T17:13:00Z",
+      "checklist": [
+        "配置Jest测试框架",
+        "创建API测试套件",
+        "设置前端组件测试",
+        "设计集成测试流程"
+      ]
+    },
+    {
+      "id": "deployment-001",
+      "title": "微信小游戏环境配置",
+      "description": "配置微信开发者工具环境和小游戏发布设置",
+      "priority": "low",
+      "status": "todo",
+      "assignee": "NIKO",
+      "estimated_hours": 3,
+      "dependencies": ["frontend-001", "backend-001"],
+      "created_at": "2026-03-04T17:13:00Z",
+      "checklist": [
+        "配置微信开发者账号",
+        "设置小游戏项目结构",
+        "配置发布流程",
+        "创建测试版本"
+      ]
+    }
+  ],
+  "sprints": [
+    {
+      "id": "sprint-1",
+      "name": "核心功能开发冲刺",
+      "start_date": "2026-03-04",
+      "end_date": "2026-03-07",
+      "goal": "完成基础咖啡厅场景、用户系统和咖啡制作核心功能",
+      "tasks": ["frontend-001", "frontend-002", "backend-001", "database-001"]
+    },
+    {
+      "id": "sprint-2",
+      "name": "恐怖氛围与优化冲刺",
+      "start_date": "2026-03-08",
+      "end_date": "2026-03-11",
+      "goal": "实现恐怖氛围系统、配方管理、性能优化",
+      "tasks": ["frontend-003", "backend-002", "database-002", "testing-001"]
+    }
+  ],
+  "metrics": {
+    "total_tasks": 9,
+    "completed_tasks": 0,
+    "in_progress_tasks": 0,
+    "blocked_tasks": 0,
+    "completion_rate": 0,
+    "estimated_total_hours": 41,
+    "remaining_hours": 41
+  },
+  "daily_standup": {
+    "yesterday_completed": [],
+    "today_completed": ["frontend-001"],
+    "today_planned": ["backend-001", "frontend-002"],
+    "blockers": [],
+    "notes": "前端核心场景开发完成，开始后端API设计和咖啡制作系统开发"
+  }
+}

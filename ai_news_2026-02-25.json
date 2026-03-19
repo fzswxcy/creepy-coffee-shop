@@ -1,0 +1,88 @@
+{
+  "date": "2026-02-25",
+  "tech_news": [
+    {
+      "title": "英伟达完成收购",
+      "source": "ZDNet",
+      "time": "今天 08:00",
+      "category": "人工智能",
+      "detail": "预计将改变行业格局",
+      "impact": "预计影响: 高"
+    },
+    {
+      "title": "英特尔宣布合作伙伴关系",
+      "source": "Wired",
+      "time": "今天 12:45",
+      "category": "自动驾驶",
+      "detail": "解决行业痛点",
+      "impact": "预计影响: 中"
+    },
+    {
+      "title": "英伟达推出硬件产品",
+      "source": "TechCrunch",
+      "time": "今天 12:15",
+      "category": "芯片技术",
+      "detail": "性能提升50%，效率显著提高",
+      "impact": "预计影响: 中"
+    },
+    {
+      "title": "英特尔推出硬件产品",
+      "source": "MIT Technology Review",
+      "time": "今天 18:00",
+      "category": "5G/6G",
+      "detail": "性能提升48%，效率显著提高",
+      "impact": "预计影响: 高"
+    },
+    {
+      "title": "苹果宣布战略投资",
+      "source": "ZDNet",
+      "time": "今天 08:45",
+      "category": "量子计算",
+      "detail": "获得用户高度评价",
+      "impact": "预计影响: 中"
+    }
+  ],
+  "finance_news": [
+    {
+      "title": "世界银行发布经济数据",
+      "source": "Financial Times",
+      "time": "今天 18:30",
+      "category": "市场分析",
+      "detail": "主要影响: 股市",
+      "effect": "长期影响待观察"
+    },
+    {
+      "title": "G20集团发布经济数据",
+      "source": "Forbes",
+      "time": "今天 18:00",
+      "category": "市场分析",
+      "detail": "主要影响: 商品市场",
+      "effect": "短期波动性增加"
+    },
+    {
+      "title": "世界银行召开新闻发布会",
+      "source": "Yahoo Finance",
+      "time": "今天 11:45",
+      "category": "股市动态",
+      "detail": "主要影响: 消费市场",
+      "effect": "长期影响待观察"
+    },
+    {
+      "title": "美联储维持利率不变",
+      "source": "Reuters",
+      "time": "今天 15:45",
+      "category": "市场分析",
+      "detail": "主要影响: 股市",
+      "effect": "长期影响待观察"
+    },
+    {
+      "title": "欧洲央行发布经济数据",
+      "source": "Wall Street Journal",
+      "time": "今天 18:30",
+      "category": "加密货币",
+      "detail": "主要影响: 债市",
+      "effect": "市场反应积极"
+    }
+  ],
+  "generated_at": "2026-02-25T10:18:39.365795"
+}

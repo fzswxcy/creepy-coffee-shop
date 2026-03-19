@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>微恐咖啡厅 - 微信小游戏</title>
+    <style>
+        /* 微信小游戏样式 - 适配手机竖屏 */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            -webkit-tap-highlight-color: transparent;
+            -webkit-touch-callout: none;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Microsoft YaHei', sans-serif;
+            background: #0a0a14;
+            color: #e0e0e0;
+            overflow: hidden;
+            height: 100vh;
+            touch-action: manipulation;
+        }
+        
+        /* 游戏容器 */
+        #game-container {
+            width: 100vw;
+            height: 100vh;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        /* 状态栏 */
+        #statusContainer {
+            position: absolute;
+            top: env(safe-area-inset-top, 20px);
+            left: 0;
+            right: 0;
+            z-index: 100;
+            padding: 12px 16px;
+            background: linear-gradient(180deg, rgba(20, 20, 30, 0.9) 0%, rgba(20, 20, 30, 0.7) 100%);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255, 107, 129, 0.3);
+        }
+        
+        .status-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+        
+        .status-item {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            min-width: 70px;
+        }
+        
+        .status-icon {
+            width: 24px;
+            height: 24px;
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+        }
+        
+        .sanity-icon {
+            background: linear-gradient(135deg, #ff4757, #ff6b81);
+            box-shadow: 0 2px 6px rgba(255, 71, 87, 0.4);
+        }
+        
+        .time-icon {
+            background: linear-gradient(135deg, #3742fa, #5352ed);
+            box-shadow: 0 2px 6px rgba(55, 66, 250, 0.4);
+        }
+        
+        .gold-icon {
+            background: linear-gradient(135deg, #ffa502, #ff7f50);
+            box-shadow: 0 2px 6px rgba(255, 165, 2, 0.4);
+        }
+        
+        .loop-icon {
+            background: linear-gradient(135deg, #2ed573, #7bed9f);
+            box-shadow: 0 2px 6px rgba(46, 213, 115, 0.4);
+        }
+        
+        .status-label {
+            font-size: 11px;
+            color: #aaa;
+            font-weight: 500;
+        }
+        
+        .status-value {
+            font-size: 16px;
+            font-weight: 700;
+            color: #fff;
+            text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+        }
+        
+        /* 游戏主画布 */
+        #gameCanvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            display: block;
+        }
+        
+        /* 控制面板 */
+        #controlContainer {
+            position: absolute;
+            bottom: max(env(safe-area-inset-bottom, 20px), 20px);
+            left: 0;
+            right: 0;
+            z-index: 200;
+            padding: 0 16px;
+        }
+        
+        .control-panel {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 12px;
+            padding: 16px;
+            background: rgba(15, 15, 25, 0.85);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            border-radius: 20px;
+            border: 1px solid rgba(255, 107, 129, 0.2);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+        }
+        
+        .control-btn {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 14px 8px;
+            background: linear-gradient(135deg, #4a2c2a, #5a3c3a);
+            color: #e0c4a0;
+            border: none;
+            border-radius: 16px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            font-size: 13px;
+            font-weight: 600;
+            touch-action: manipulation;
+            -webkit-user-select: none;
+            user-select: none;
+        }
+        
+        .control-btn:active {
+            transform: scale(0.95);
+            background: linear-gradient(135deg, #5a3c3a, #6a4c4a);
+            box-shadow: inset 0 4px 8px rgba(0, 0, 0, 0.3);
+        }
+        
+        .btn-icon {
+            font-size: 22px;
+            margin-bottom: 4px;
+        }
+        
+        .btn-text {
+            font-size: 11px;
+            text-align: center;
+            line-height: 1.2;
+        }
+        
+        /* 消息日志 */
+        #messageLog {
+            position: absolute;
+            top: 120px;
+            left: 16px;
+            right: 16px;
+            max-height: 150px;
+            overflow-y: auto;
+            background: rgba(0, 0, 0, 0.6);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 107, 129, 0.3);
+            border-radius: 12px;
+            padding: 12px;
+            z-index: 150;
+            display: none; /* 默认隐藏，需要时显示 */
+        }
+        
+        .message-entry {
+            margin-bottom: 8px;
+            padding: 8px 12px;
+            background: rgba(40, 30, 30, 0.7);
+            border-left: 3px solid #ff4757;
+            border-radius: 8px;
+            font-size: 13px;
+            line-height: 1.4;
+            animation: slideIn 0.3s ease;
+        }
+        
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        /* 特效层 */
+        #effectLayer {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 300;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+        
+        .ghost-flash {
+            background: radial-gradient(circle at center, rgba(255, 255, 255, 0.2) 0%, transparent 70%);
+            animation: flash 0.5s ease;
+        }
+        
+        @keyframes flash {
+            0%, 100% { opacity: 0; }
+            50% { opacity: 0.6; }
+        }
+        
+        /* 标题和游戏说明 */
+        .game-title {
+            position: absolute;
+            top: 50%;
+            left: 0;
+            right: 0;
+            transform: translateY(-50%);
+            text-align: center;
+            z-index: 250;
+            padding: 0 20px;
+            pointer-events: none;
+        }
+        
+        .game-title h1 {
+            font-size: 36px;
+            color: #ff6b81;
+            text-shadow: 0 0 20px rgba(255, 107, 129, 0.7);
+            margin-bottom: 8px;
+            letter-spacing: 1px;
+        }
+        
+        .game-title .subtitle {
+            font-size: 16px;
+            color: #aaa;
+            margin-bottom: 24px;
+        }
+        
+        .start-button {
+            padding: 16px 32px;
+            background: linear-gradient(135deg, #ff4757, #ff6b81);
+            color: white;
+            border: none;
+            border-radius: 25px;
+            font-size: 18px;
+            font-weight: 700;
+            cursor: pointer;
+            pointer-events: auto;
+            box-shadow: 0 6px 20px rgba(255, 71, 87, 0.4);
+            transition: all 0.3s;
+        }
+        
+        .start-button:active {
+            transform: scale(0.95);
+            box-shadow: 0 3px 10px rgba(255, 71, 87, 0.6);
+        }
+        
+        /* 加载指示器 */
+        .loading-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #0a0a14;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+        }
+        
+        .loading-spinner {
+            width: 50px;
+            height: 50px;
+            border: 4px solid rgba(255, 107, 129, 0.3);
+            border-top: 4px solid #ff6b81;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin-bottom: 20px;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        .loading-text {
+            color: #aaa;
+            font-size: 14px;
+            text-align: center;
+        }
+        
+        /* 适配不同屏幕尺寸 */
+        @media (max-width: 320px) {
+            .status-item {
+                min-width: 60px;
+            }
+            
+            .status-icon {
+                width: 20px;
+                height: 20px;
+                font-size: 12px;
+            }
+            
+            .status-value {
+                font-size: 14px;
+            }
+            
+            .control-panel {
+                padding: 12px;
+                gap: 8px;
+            }
+            
+            .control-btn {
+                padding: 12px 6px;
+            }
+            
+            .btn-icon {
+                font-size: 18px;
+            }
+            
+            .btn-text {
+                font-size: 10px;
+            }
+        }
+        
+        @media (min-width: 768px) and (max-height: 1024px) {
+            .control-panel {
+                grid-template-columns: repeat(5, 1fr);
+            }
+            
+            .game-title h1 {
+                font-size: 48px;
+            }
+            
+            .game-title .subtitle {
+                font-size: 20px;
+            }
+        }
+        
+        /* 安全区域适配 */
+        @supports (padding: max(0px)) {
+            #statusContainer {
+                padding-top: max(12px, env(safe-area-inset-top, 12px));
+                padding-bottom: max(12px, env(safe-area-inset-bottom, 12px));
+            }
+            
+            #controlContainer {
+                padding-bottom: max(20px, env(safe-area-inset-bottom, 20px));
+            }
+        }
+        
+        /* 性能优化 */
+        .performance-optimized {
+            will-change: transform, opacity;
+            contain: content;
+        }
+        
+        /* 调试工具 */
+        .debug-tools {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            z-index: 1000;
+            display: none; /* 默认隐藏，开发时显示 */
+        }
+        
+        .debug-btn {
+            padding: 6px 12px;
+            background: rgba(0, 0, 0, 0.7);
+            color: #0f0;
+            border: 1px solid #0f0;
+            border-radius: 6px;
+            font-size: 12px;
+            font-family: monospace;
+            margin-bottom: 5px;
+            cursor: pointer;
+        }
+        
+        /* 微信小游戏特定样式 */
+        .wechat-only {
+            display: none;
+        }
+        
+        body.wechat-environment .wechat-only {
+            display: block;
+        }
+        
+        body.wechat-environment .web-only {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <!-- 加载界面 -->
+    <div id="loadingScreen" class="loading-container">
+        <div class="loading-spinner"></div>
+        <div class="loading-text">微恐咖啡厅加载中...</div>
+    </div>
+    
+    <!-- 游戏主容器 -->
+    <div id="game-container" style="display: none;">
+        <!-- 状态栏 -->
+        <div id="statusContainer"></div>
+        
+        <!-- 游戏画布 -->
+        <canvas id="gameCanvas"></canvas>
+        
+        <!-- 特效层 -->
+        <div id="effectLayer"></div>
+        
+        <!-- 消息日志 -->
+        <div id="messageLog"></div>
+        
+        <!-- 控制面板 -->
+        <div id="controlContainer"></div>
+        
+        <!-- 调试工具（开发时显示） -->
+        <div class="debug-tools">
+            <button class="debug-btn" onclick="debugAddGold(1000)">+1000金币</button>
+            <button class="debug-btn" onclick="debugTriggerHorror()">触发恐怖事件</button>
+            <button class="debug-btn" onclick="debugResetGame()">重置游戏</button>
+            <button class="debug-btn" onclick="toggleMessageLog()">显示/隐藏消息</button>
+        </div>
+    </div>
+    
+    <!-- 开始界面 -->
+    <div id="startScreen" class="game-title" style="display: none;">
+        <h1>微恐咖啡厅</h1>
+        <div class="subtitle">午夜咖啡店的恐怖秘密</div>
+        <button class="start-button" onclick="startGame()">开始游戏</button>
+        <div style="margin-top: 20px; font-size: 14px; color: #666;">
+            <p>触摸屏幕制作咖啡，保持理智值</p>
+            <p>小心夜晚的恐怖事件...</p>
+        </div>
+    </div>
+    
+    <!-- 微信小游戏特定元素 -->
+    <div class="wechat-only">
+        <!-- 微信分享按钮等 -->
+    </div>
+    
+    <!-- 游戏逻辑 -->
+    <script src="game.js"></script>
+    
+    <script>
+        // 页面加载完成后的初始化
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('DOM加载完成，初始化微信小游戏');
+            
+            // 检测微信环境
+            if (typeof wx !== 'undefined') {
+                document.body.classList.add('wechat-environment');
+                console.log('检测到微信小游戏环境');
+            }
+            
+            // 显示开始界面
+            setTimeout(() => {
+                document.getElementById('loadingScreen').style.display = 'none';
+                document.getElementById('startScreen').style.display = 'block';
+                console.log('显示开始界面');
+            }, 2000);
+            
+            // 调试工具（开发时启用）
+            if (window.location.href.indexOf('debug') !== -1) {
+                document.querySelector('.debug-tools').style.display = 'block';
+            }
+        });
+        
+        // 开始游戏函数
+        function startGame() {
+            console.log('开始游戏');
+            
+            // 隐藏开始界面
+            document.getElementById('startScreen').style.display = 'none';
+            
+            // 显示游戏界面
+            const gameContainer = document.getElementById('game-container');
+            gameContainer.style.display = 'block';
+            
+            // 触发游戏初始化（game.js中的onload）
+            if (typeof window.onload === 'function') {
+                window.onload();
+            }
+            
+            // 显示欢迎消息
+            setTimeout(() => {
+                showMessage('欢迎来到微恐咖啡厅...现在是午夜营业时间');
+                setTimeout(() => {
+                    showMessage('理智值开始下降...保持冷静');
+                }, 2000);
+            }, 1000);
+        }
+        
+        // 显示/隐藏消息日志
+        function toggleMessageLog() {
+            const log = document.getElementById('messageLog');
+            if (log.style.display === 'none' || log.style.display === '') {
+                log.style.display = 'block';
+            } else {
+                log.style.display = 'none';
+            }
+        }
+        
+        // 微信小游戏特定函数
+        function showWeChatShareMenu() {
+            if (typeof wx !== 'undefined') {
+                wx.showShareMenu({
+                    withShareTicket: true,
+                    menus: ['shareAppMessage', 'shareTimeline']
+                });
+            }
+        }
+        
+        // 性能监控
+        let fps = 60;
+        let lastFrameTime = performance.now();
+        
+        function monitorPerformance() {
+            const currentTime = performance.now();
+            if (currentTime - lastFrameTime >= 1000) {
+                fps = Math.round(1000 / (currentTime - lastFrameTime));
+                console.log(`FPS: ${fps}`);
+                lastFrameTime = currentTime;
+                
+                // 如果FPS过低，进行优化
+                if (fps < 30) {
+                    console.warn('FPS过低，考虑优化渲染');
+                }
+            }
+        }
+        
+        // 启动性能监控
+        setInterval(monitorPerformance, 1000);
+        
+        console.log('微恐咖啡厅微信小游戏页面初始化完成');
+    </script>
+</body>
+</html>

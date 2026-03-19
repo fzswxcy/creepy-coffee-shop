@@ -1,0 +1,61 @@
+{
+  "compilerOptions": {
+    "target": "es2017",
+    "module": "es2020",
+    "lib": ["es2017", "es2020", "dom"],
+    "types": ["node"],
+    "typeRoots": [
+      "./node_modules/@types",
+      "./node_modules/@cocos/types"
+    ],
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    "moduleResolution": "node",
+    "strict": true,
+    "noImplicitAny": false,
+    "strictNullChecks": true,
+    "strictFunctionTypes": true,
+    "strictPropertyInitialization": true,
+    "strictBindCallApply": true,
+    "noImplicitThis": true,
+    "noImplicitReturns": true,
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true,
+    "resolveJsonModule": true,
+    "skipLibCheck": true,
+    "declaration": false,
+    "outDir": "./dist",
+    "rootDir": "./assets",
+    "baseUrl": "./",
+    "paths": {
+      "@/*": ["assets/*"],
+      "@scripts/*": ["assets/scripts/*"],
+      "@textures/*": ["assets/textures/*"],
+      "@sounds/*": ["assets/sounds/*"]
+    },
+    "sourceMap": true,
+    "inlineSources": true,
+    "removeComments": false,
+    "newLine": "lf",
+    "forceConsistentCasingInFileNames": true,
+    "allowUnreachableCode": false,
+    "allowUnusedLabels": false,
+    "importHelpers": true,
+    "downlevelIteration": true,
+    "noEmitOnError": true
+  },
+  "include": [
+    "assets/**/*.ts",
+    "assets/**/*.tsx"
+  ],
+  "exclude": [
+    "node_modules",
+    "dist",
+    "build",
+    "temp",
+    "library",
+    "settings",
+    "local",
+    "*.js"
+  ]
+}
