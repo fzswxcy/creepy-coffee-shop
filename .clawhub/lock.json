@@ -1,0 +1,81 @@
+{
+  "version": 1,
+  "skills": {
+    "agent-browser": {
+      "version": "0.2.0",
+      "installedAt": 1773736331377
+    },
+    "news": {
+      "version": "1.0.1",
+      "installedAt": 1771987144761
+    },
+    "summarizer": {
+      "version": "1.0.0",
+      "installedAt": 1772085849721
+    },
+    "scrape": {
+      "version": "1.0.0",
+      "installedAt": 1772090107557
+    },
+    "ai-news-collectors": {
+      "version": "1.0.0",
+      "installedAt": 1772127073585
+    },
+    "tavily-search": {
+      "version": "1.0.0",
+      "installedAt": 1773736329476
+    },
+    "summarize": {
+      "version": "1.0.0",
+      "installedAt": 1773736330401
+    },
+    "find-skills": {
+      "version": "0.1.0",
+      "installedAt": 1773736332302
+    },
+    "github": {
+      "version": "1.0.0",
+      "installedAt": 1773736333248
+    },
+    "obsidian": {
+      "version": "1.0.0",
+      "installedAt": 1773736334229
+    },
+    "weather": {
+      "version": "1.0.0",
+      "installedAt": 1773736335180
+    },
+    "ocft": {
+      "version": "1.1.2",
+      "installedAt": 1773042991258
+    },
+    "node-transfer": {
+      "version": "1.0.0",
+      "installedAt": 1773042997649
+    },
+    "perkoon-transfer": {
+      "version": "1.0.2",
+      "installedAt": 1773043584378
+    },
+    "ngrok-preview": {
+      "version": "1.0.2",
+      "installedAt": 1773046498713
+    },
+    "easy-search": {
+      "version": "1.0.0",
+      "installedAt": 1773136647085
+    },
+    "find-rss": {
+      "version": "1.0.0",
+      "installedAt": 1773136651167
+    },
+    "claude-code": {
+      "version": "1.0.0",
+      "installedAt": 1773731570326
+    },
+    "acp-router": {
+      "version": "1.0.0",
+      "installedAt": 1773732989834
+    }
+  }
+}
