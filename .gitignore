@@ -1,0 +1,46 @@
+# Dependencies
+node_modules/
+__pycache__/
+*.pyc
+*.pyo
+
+# Environment
+.env
+.env.local
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+logs/
+
+# Temporary files
+tmp/
+temp/
+*.tmp
+
+# Clawhub
+.clawhub/
+.openclaw/
+
+# Large binary files
+*.rpm
+*.deb
+*.exe
+*.dmg
+
+# Test outputs
+test_outputs/
+coverage/
+
+# Build outputs
+dist/
+build/
