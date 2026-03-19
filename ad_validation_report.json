@@ -1,0 +1,104 @@
+{
+  "timestamp": "2026-03-05T11:05:16.807Z",
+  "summary": {
+    "successes": 18,
+    "warnings": 0,
+    "issues": 2
+  },
+  "successes": [
+    {
+      "category": "配置",
+      "description": "广告配置结构存在"
+    },
+    {
+      "category": "配置",
+      "description": "游戏配置文件存在"
+    },
+    {
+      "category": "代码结构",
+      "description": "微信平台适配器 结构完整"
+    },
+    {
+      "category": "代码结构",
+      "description": "广告管理器 结构完整"
+    },
+    {
+      "category": "代码结构",
+      "description": "微信变现系统 结构完整"
+    },
+    {
+      "category": "代码结构",
+      "description": "游戏管理器 结构完整"
+    },
+    {
+      "category": "代码结构",
+      "description": "广告类型枚举定义完整"
+    },
+    {
+      "category": "代码结构",
+      "description": "广告奖励类型枚举定义完整"
+    },
+    {
+      "category": "集成",
+      "description": "广告系统与经济系统集成"
+    },
+    {
+      "category": "集成",
+      "description": "广告系统与内购系统集成"
+    },
+    {
+      "category": "集成",
+      "description": "广告系统使用事件驱动架构"
+    },
+    {
+      "category": "集成",
+      "description": "广告奖励配置完整"
+    },
+    {
+      "category": "集成",
+      "description": "广告功能已集成到UI界面"
+    },
+    {
+      "category": "错误处理",
+      "description": "广告系统包含错误处理机制"
+    },
+    {
+      "category": "错误处理",
+      "description": "广告系统包含降级处理机制"
+    },
+    {
+      "category": "性能",
+      "description": "广告系统支持预加载"
+    },
+    {
+      "category": "性能",
+      "description": "广告系统包含频率控制机制"
+    },
+    {
+      "category": "性能",
+      "description": "广告系统包含冷却时间管理"
+    }
+  ],
+  "warnings": [],
+  "issues": [
+    {
+      "type": "配置问题",
+      "severity": "高",
+      "location": "assets/scripts/platform/WeChatPlatformAdapter.ts",
+      "description": "使用示例广告单元ID，需要替换为真实ID",
+      "suggestion": "从微信广告平台获取真实广告单元ID"
+    },
+    {
+      "type": "配置问题",
+      "severity": "高",
+      "location": "assets/scripts/managers/AdManager.ts",
+      "description": "使用示例广告单元ID，需要替换为真实ID",
+      "suggestion": "从微信广告平台获取真实广告单元ID"
+    }
+  ],
+  "overallAssessment": {
+    "status": "不通过",
+    "description": "广告系统存在关键问题，需要修复后才能上线",
+    "color": "red"
+  }
+}

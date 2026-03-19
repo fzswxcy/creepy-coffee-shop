@@ -1,0 +1,73 @@
+{
+  "description": "微恐咖啡厅极简版构建配置",
+  "engine": "cocos-creator-3.x",
+  "designResolution": {
+    "width": 750,
+    "height": 1334,
+    "fitWidth": true,
+    "fitHeight": false
+  },
+  "startScene": "db://assets/scenes/MainSceneQuick.fire",
+  "platform": "wechatgame",
+  "targetPlatform": "wechatgame",
+  "simulatorOrientation": "portrait",
+  "debug": true,
+  "assets": {
+    "autoGenerateAtlas": false,
+    "compressTexture": true,
+    "textureFormat": "jpg",
+    "quality": 60,
+    "excludes": [
+      "**/*.psd",
+      "**/*.tga",
+      "**/*.blend",
+      "**/models/**",
+      "**/animations/**",
+      "**/fonts/**",
+      "**/shaders/**"
+    ]
+  },
+  "scenes": [
+    "db://assets/scenes/MainSceneQuick.fire"
+  ],
+  "scripts": [
+    "assets/scripts/core/QuickGameInterface.ts",
+    "assets/scripts/scenes/MainSceneQuick.ts"
+  ],
+  "pipeline": {
+    "name": "builtin",
+    "glslCheck": false,
+    "skipTextureCompress": false,
+    "md5Cache": false,
+    "nameFiles": "hash"
+  },
+  "wechatgame": {
+    "appid": "wx1234567890abcdef",
+    "orientation": "portrait",
+    "separateEngine": false,
+    "subpackages": [
+      {
+        "name": "quick",
+        "root": "./"
+      }
+    ],
+    "remoteUrl": "",
+    "wasm": false,
+    "wasmSubPackage": false,
+    "worker": false,
+    "workerPath": "",
+    "optimizeImage": true,
+    "optimizeAudio": true,
+    "optimizeJSON": true
+  },
+  "buildPath": "./build-quick",
+  "outputName": "wechatgame-quick",
+  "title": "微恐咖啡厅极简版",
+  "packageName": "com.wechatgame.coffeehorror.quick",
+  "md5Cache": false,
+  "sourceMaps": false,
+  "replaceSplashScreen": false,
+  "inlineSpriteFrames": true,
+  "mergeStartScene": false,
+  "optimizeHotUpdate": false
+}

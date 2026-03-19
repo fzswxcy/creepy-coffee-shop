@@ -1,19 +1,33 @@
 {
-  "name": "workspace",
+  "name": "wechat-coffee-horror",
   "version": "1.0.0",
-  "description": "",
-  "main": "screenshot.js",
+  "description": "微恐咖啡厅微信小游戏",
+  "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "npm run dev",
+    "dev": "echo '请在Cocos Creator中打开项目'",
+    "build": "cocos build --platform wechatgame",
+    "build:debug": "cocos build --platform wechatgame --debug",
+    "build:release": "cocos build --platform wechatgame --release",
+    "test": "echo '暂无测试'",
+    "lint": "eslint assets/scripts --ext .ts",
+    "prettier": "prettier --write \"assets/scripts/**/*.ts\""
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "keywords": [
+    "coffee",
+    "horror",
+    "wechat",
+    "minigame"
+  ],
+  "author": "微恐咖啡厅团队",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "eslint": "^8.0.0",
+    "prettier": "^3.0.0",
+    "typescript": "^5.0.0"
+  },
   "dependencies": {
-    "axios": "^1.13.5",
-    "ejs": "^4.0.1",
-    "node-cron": "^4.2.1",
-    "puppeteer": "^24.37.5",
-    "rss-parser": "^3.13.0"
+    "cocos-creator": "3.8.0"
   }
 }

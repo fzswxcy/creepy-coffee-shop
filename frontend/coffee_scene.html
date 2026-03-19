@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>微恐咖啡厅 - 午夜咖啡厅场景</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Microsoft YaHei', sans-serif;
+            background: #0a0a0a;
+            color: #e0e0e0;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+        }
+        
+        #game-container {
+            flex: 1;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        #canvas-container {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+        
+        #status-bar {
+            background: rgba(20, 20, 30, 0.9);
+            padding: 12px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 2px solid #4a2c2a;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.6);
+        }
+        
+        .status-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .status-icon {
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+        }
+        
+        #san-icon {
+            background: linear-gradient(135deg, #ff4757, #ff6b81);
+        }
+        
+        #time-icon {
+            background: linear-gradient(135deg, #3742fa, #5352ed);
+        }
+        
+        #gold-icon {
+            background: linear-gradient(135deg, #ffa502, #ff7f50);
+        }
+        
+        .status-value {
+            font-size: 18px;
+            font-weight: bold;
+            color: #fff;
+        }
+        
+        .status-label {
+            font-size: 14px;
+            color: #aaa;
+        }
+        
+        #game-controls {
+            padding: 15px 20px;
+            background: rgba(15, 15, 25, 0.8);
+            border-top: 1px solid #333;
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+        
+        .control-btn {
+            padding: 8px 16px;
+            background: linear-gradient(135deg, #4a2c2a, #5a3c3a);
+            color: #e0c4a0;
+            border: 1px solid #7a5c5a;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-weight: bold;
+            font-size: 14px;
+        }
+        
+        .control-btn:hover {
+            background: linear-gradient(135deg, #5a3c3a, #6a4c4a);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(255, 0, 0, 0.3);
+        }
+        
+        #scary-effects {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1000;
+            opacity: 0;
+            transition: opacity 0.5s;
+        }
+        
+        .scary-flash {
+            background: rgba(255, 0, 0, 0.3);
+        }
+        
+        .scary-flicker {
+            animation: flicker 0.3s infinite;
+        }
+        
+        @keyframes flicker {
+            0%, 100% { opacity: 0.1; }
+            50% { opacity: 0.3; }
+        }
+        
+        #message-log {
+            position: absolute;
+            bottom: 80px;
+            left: 20px;
+            width: 300px;
+            max-height: 200px;
+            overflow-y: auto;
+            background: rgba(0, 0, 0, 0.7);
+            border: 1px solid #4a2c2a;
+            border-radius: 8px;
+            padding: 10px;
+            z-index: 100;
+        }
+        
+        .log-entry {
+            margin-bottom: 8px;
+            padding: 8px;
+            background: rgba(40, 30, 30, 0.8);
+            border-left: 3px solid #ff4757;
+            border-radius: 4px;
+            animation: fadeIn 0.5s;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        #fps-counter {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: rgba(0, 0, 0, 0.5);
+            color: #0f0;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 12px;
+            font-family: monospace;
+            z-index: 100;
+        }
+        
+        /* 恐怖氛围特效 */
+        .ghost-overlay {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100'%3E%3Cpath d='M50,50 Q80,30 70,60 Q60,80 50,70 Q40,80 30,60 Q20,30 50,50' fill='rgba(255,255,255,0.02)'/%3E%3C/svg%3E");
+            animation: float 20s infinite linear;
+            opacity: 0.1;
+        }
+        
+        @keyframes float {
+            0% { transform: translateY(0) translateX(0); }
+            25% { transform: translateY(-20px) translateX(20px); }
+            50% { transform: translateY(0) translateX(40px); }
+            75% { transform: translateY(20px) translateX(20px); }
+            100% { transform: translateY(0) translateX(0); }
+        }
+    </style>
+</head>
+<body>
+    <!-- 状态栏 -->
+    <div id="status-bar">
+        <div class="status-item">
+            <div class="status-icon" id="san-icon"></div>
+            <div>
+                <div class="status-label">理智值</div>
+                <div class="status-value" id="sanity-value">100</div>
+            </div>
+        </div>
+        <div class="status-item">
+            <div class="status-icon" id="time-icon"></div>
+            <div>
+                <div class="status-label">时间</div>
+                <div class="status-value" id="time-value">02:47 AM</div>
+            </div>
+        </div>
+        <div class="status-item">
+            <div class="status-icon" id="gold-icon"></div>
+            <div>
+                <div class="status-label">金币</div>
+                <div class="status-value" id="gold-value">1,250</div>
+            </div>
+        </div>
+        <div id="game-title">
+            <h1 style="color: #ff6b81; text-shadow: 0 0 10px rgba(255, 107, 129, 0.5);">微恐咖啡厅</h1>
+            <div style="font-size: 12px; color: #aaa;">午夜经营模式 - 理智值危险</div>
+        </div>
+    </div>
+
+    <!-- 游戏主容器 -->
+    <div id="game-container">
+        <div id="canvas-container">
+            <!-- Three.js canvas 将由JavaScript创建 -->
+            <canvas id="game-canvas"></canvas>
+            
+            <!-- 恐怖氛围特效层 -->
+            <div class="ghost-overlay"></div>
+            <div class="ghost-overlay" style="animation-delay: -10s;"></div>
+        </div>
+        
+        <!-- 消息日志 -->
+        <div id="message-log">
+            <div class="log-entry">系统: 欢迎来到微恐咖啡厅，现在是午夜营业时间</div>
+            <div class="log-entry">系统: 理智值开始下降...保持冷静</div>
+            <div class="log-entry">系统: 有顾客来了，请准备咖啡</div>
+        </div>
+        
+        <!-- FPS计数器 -->
+        <div id="fps-counter">FPS: 60</div>
+    </div>
+
+    <!-- 恐怖特效层 -->
+    <div id="scary-effects"></div>
+
+    <!-- 游戏控制 -->
+    <div id="game-controls">
+        <button class="control-btn" id="btn-brew">冲泡咖啡</button>
+        <button class="control-btn" id="btn-clean">清洁吧台</button>
+        <button class="control-btn" id="btn-lights">切换灯光</button>
+        <button class="control-btn" id="btn-menu">查看菜单</button>
+        <button class="control-btn" id="btn-save">保存进度</button>
+        <button class="control-btn" id="btn-scary">测试恐怖事件</button>
+    </div>
+
+    <!-- Three.js库和游戏脚本 -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="coffee_scene.js"></script>
+</body>
+</html>
